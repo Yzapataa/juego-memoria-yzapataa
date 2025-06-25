@@ -1,0 +1,12 @@
+<div class="level-container">
+  <p class="level-title">Selecciona el nivel de dificultad</p>
+
+  <div class="select-wrapper">
+    <select [(ngModel)]="selectedLevel" (change)="onChangeLevel()">
+      <option value="" disabled selected>— Escoge una dificultad —</option>
+      <option value="facil">🟢 Fácil (2 x 2)</option>
+      <option value="medio">🟡 Medio (3 x 3)</option>
+      <option value="dificil">🔴 Difícil (5 x 5)</option>
+    </select>
+  </div>
+</div>

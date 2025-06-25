@@ -1,0 +1,269 @@
+/* ---------- Layout Principal (Nueva versión en tonos crema y amarillo) ---------- */
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom right, #fff8e1, #fff3cd);
+  font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+  animation: fadeInLayout 0.6s ease-in-out;
+}
+
+@keyframes fadeInLayout {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.game-section {
+  width: 100%;
+  max-width: 600px;
+  background-color: #fffef6;
+  padding: 30px 40px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  animation: slideInBottom 0.7s ease;
+}
+
+@keyframes slideInBottom {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.score-board {
+  width: 100%;
+  max-width: 600px;
+  background: #fffef2;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  animation: fadeInLayout 1s ease-in-out;
+}
+
+.score-board h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #5a4d3b;
+}
+
+.score-board table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+.score-board th,
+.score-board td {
+  border: 1px solid #e0cfa5;
+  padding: 8px;
+  text-align: center;
+}
+.score-board th {
+  background-color: #fff3cd;
+}
+.score-board tbody tr:nth-child(1) {
+  background-color: #ffefb5;
+  font-weight: bold;
+}
+.score-board tbody tr:nth-child(2) {
+  background-color: #fff7da;
+  font-weight: bold;
+}
+.score-board tbody tr:nth-child(3) {
+  background-color: #fff0c1;
+  font-weight: bold;
+}
+
+.board {
+  display: grid;
+  gap: 15px;
+  margin: 25px 0;
+  justify-content: center;
+}
+
+.card-button {
+  width: 75px;
+  height: 75px;
+  font-size: 24px;
+  border-radius: 10px;
+  background-color: #fff;
+  border: 2px solid #e6d7b0;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+.card-button:hover {
+  background-color: #fdf6d3;
+  transform: scale(1.05);
+}
+
+.keyboard h3 {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #5d4b2c;
+}
+
+.option-button {
+  width: 55px;
+  height: 55px;
+  font-size: 18px;
+  border-radius: 8px;
+  background: #f7d774;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+.option-button:hover {
+  background: #f2cc5c;
+  transform: translateY(-2px);
+}
+
+.center-message,
+.win-message {
+  text-align: center;
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.win-message {
+  color: #28a745;
+}
+.center-message.has-failed {
+  color: #c0392b;
+}
+
+.retry-button,
+.menu-button,
+.next-level-button {
+  margin: 10px 5px;
+  padding: 10px 22px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.retry-button {
+  background-color: #f56c6c;
+  color: white;
+}
+.retry-button:hover {
+  background-color: #d35454;
+  transform: translateY(-2px);
+}
+
+.next-level-button {
+  background-color: #73c088;
+  color: white;
+}
+.next-level-button:hover {
+  background-color: #58a26b;
+  transform: translateY(-2px);
+}
+
+.menu-button {
+  background-color: #fffdf4;
+  color: #333;
+  font-weight: bold;
+  border: 2px solid #a88c4c;
+  border-radius: 10px;
+  padding: 10px 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.menu-button:hover {
+  background-color: #fef6db;
+  transform: translateY(-2px);
+}
+
+.settings-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  background-color: #ffe082;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+.settings-button:hover {
+  background-color: #ffd54f;
+}
+
+.config-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.config-content {
+  background-color: #fffbea;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 700px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.modal-scroll {
+  overflow-y: auto;
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+
+.modal-table th,
+.modal-table td {
+  border: 1px solid #e4c97b;
+  padding: 10px;
+  text-align: center;
+}
+
+.edit-btn {
+  background-color: #ffca28;
+  color: #000;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.delete-btn {
+  background-color: #ef5350;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.close-btn {
+  background-color: #8d6e63;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  align-self: center;
+  cursor: pointer;
+}
+.close-btn:hover {
+  background-color: #6d4c41;
+}

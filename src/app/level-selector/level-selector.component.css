@@ -1,0 +1,39 @@
+.level-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fffdf2;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.level-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #4e342e;
+  margin-bottom: 1rem;
+}
+
+.select-wrapper select {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #d7ccc8;
+  background-color: #fffaf0;
+  color: #5d4037;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.select-wrapper select:focus {
+  outline: none;
+  border-color: #f9a825;
+}
+
+.select-wrapper select option {
+  padding: 10px;
+}

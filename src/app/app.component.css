@@ -1,0 +1,228 @@
+/* Contenedor principal */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #fdf6e3, #fef9e7); /* crema y pastel amarillo */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Título animado */
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: #4e342e;
+  animation: fadeSlideDown 1s ease-out;
+}
+
+@keyframes fadeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Secciones */
+.section {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Etiquetas y select */
+label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #6d4c41;
+  margin-bottom: 0.5rem;
+}
+
+select {
+  width: 280px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #d7ccc8;
+  background-color: #fffaf0;
+  color: #5d4037;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+select:focus {
+  outline: none;
+  border-color: #f9a825;
+}
+
+select::-webkit-scrollbar {
+  width: 8px;
+}
+select::-webkit-scrollbar-thumb {
+  background-color: #f9a825;
+  border-radius: 4px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"] {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #d7ccc8;
+  width: 250px;
+  background-color: #fffef5;
+  color: #4e342e;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Botones */
+button {
+  padding: 10px 22px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #fdd835; /* Amarillo suave */
+  color: #4e342e;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+button:hover {
+  background-color: #fbc02d;
+  transform: translateY(-2px);
+}
+
+.register-button {
+  background-color: #fbc02d;
+}
+
+.register-button:hover {
+  background-color: #f9a825;
+}
+
+/* Validación de nombre */
+.error {
+  font-size: 0.9rem;
+  color: #c62828;
+  margin-top: -5px;
+}
+
+/* Componentes centrales */
+app-level-selector {
+  margin-top: 10px;
+}
+app-game-board {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 10px;
+}
+
+/* Registro */
+.register-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.password-hint {
+  font-size: 0.85rem;
+  color: #5d4037;
+  margin-top: -5px;
+  margin-bottom: 10px;
+  text-align: center;
+  max-width: 250px;
+}
+
+/* Banner */
+.banner {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #4e342e;
+}
+
+.banner h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 1.2rem;
+  color: #6d4c41;
+}
+
+/* Tarjeta */
+.card-box {
+  background-color: #fffef8;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card-box h2 {
+  font-size: 1.6rem;
+  color: #4e342e;
+}
+
+/* Divider */
+.divider {
+  margin: 1rem 0;
+  font-weight: bold;
+  color: #a1887f;
+}
+
+/* Avatares y créditos */
+.developers {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.avatars {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border: 3px solid #fff8e1;
+}
+
+.avatar span {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #4e342e;
+}

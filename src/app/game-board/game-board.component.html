@@ -1,0 +1,112 @@
+<div class="main-layout">
+  <!-- 🔧 Botón de ajustes y salida -->
+  <div class="top-controls">
+    <button class="settings-button" (click)="abrirConfiguracionGeneral()">⚙️</button>
+    <button class="menu-button" (click)="returnToMenu()">Volver al inicio</button>
+  </div>
+
+  <!-- 🎮 Zona del juego -->
+  <div class="game-section">
+    <h2>🧠 Ronda de Memoria</h2>
+    <p>👤 Jugador actual: <strong>{{ playerName }}</strong></p>
+    <p>🏅 Rondas superadas: <strong>{{ roundsWon }}</strong></p>
+
+    <!-- Tablero -->
+    <div class="board" [ngStyle]="{ 'grid-template-columns': 'repeat(' + getSqrt(boardSize) + ', 70px)' }">
+      <button *ngFor="let card of cards; let i = index" [disabled]="!revealedCards[i]" class="card-button">
+        {{ revealedCards[i] ? card : '?' }}
+      </button>
+    </div>
+
+    <!-- Teclado numérico -->
+    <div class="keyboard" *ngIf="!hasFailed && !hasWon && !rondaCompletada">
+      <h3>¿Qué número viste?</h3>
+      <div class="keys">
+        <button *ngFor="let num of numberKeys" (click)="onUserSelect(num)" class="option-button">{{ num }}</button>
+      </div>
+    </div>
+
+    <!-- Resultado ronda -->
+    <div class="center-message" *ngIf="rondaCompletada">
+      <h2 *ngIf="hasWon" class="win-message pulseWin">🎉 ¡Ronda completada con éxito!</h2>
+      <h2 *ngIf="hasFailed" class="lose-message shake">❌ Has fallado la ronda</h2>
+
+      <div class="button-group">
+        <ng-container *ngIf="hasWon && !partidaGuardada">
+          <button class="next-level-button" (click)="guardarPartida()">💾 Guardar progreso</button>
+          <button class="next-level-button" (click)="siguienteRonda()">➡️ Nueva ronda</button>
+          <button class="menu-button" (click)="returnToMenu()">🏠 Inicio</button>
+        </ng-container>
+
+        <ng-container *ngIf="hasWon && partidaGuardada">
+          <p>✅ Progreso guardado.</p>
+          <button class="retry-button" (click)="retry()">🔁 Jugar nuevamente</button>
+        </ng-container>
+
+        <ng-container *ngIf="hasFailed">
+          <button class="retry-button" (click)="retry()">🔁 Intentar de nuevo</button>
+          <button class="menu-button" (click)="returnToMenu()">🏠 Volver al inicio</button>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- 🏅 Ranking de jugadores (ahora debajo del juego) -->
+    <div class="score-board">
+      <h3>📊 Tabla de Rendimiento</h3>
+      <div class="ranking-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Jugador</th>
+              <th>Aciertos</th>
+              <th>Partidas</th>
+              <th>Eficiencia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let score of scoreListSorted; index as i">
+              <td>{{ i + 1 }}</td>
+              <td>{{ score.name }}</td>
+              <td>{{ score.aciertos }}</td>
+              <td>{{ score.partidas }}</td>
+              <td>{{ (score.aciertos / score.partidas) | number: '1.2-2' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⚙️ Modal de configuración -->
+  <div class="config-modal" *ngIf="mostrarModalConfiguracion">
+    <div class="config-content">
+      <h3>🧾 Configuración de jugadores</h3>
+      <div class="modal-scroll">
+        <table class="modal-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Jugador</th>
+              <th>Aciertos</th>
+              <th>Partidas</th>
+              <th>Editar</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let score of scoreListSorted; index as i">
+              <td>{{ i + 1 }}</td>
+              <td>{{ score.name }}</td>
+              <td>{{ score.aciertos }}</td>
+              <td>{{ score.partidas }}</td>
+              <td><button class="edit-btn" (click)="editarJugador(score)">✏️</button></td>
+              <td><button class="delete-btn" (click)="eliminarJugador(score)">🗑️</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="close-btn" (click)="cerrarConfiguracionGeneral()">Cerrar</button>
+    </div>
+  </div>
+</div>
